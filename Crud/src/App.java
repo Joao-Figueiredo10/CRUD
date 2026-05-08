@@ -540,7 +540,6 @@ server.createContext("/atualizar", exchange -> {
 
                 con.close();
 
-
                 html.append("""
 
                     <html>
@@ -553,7 +552,6 @@ server.createContext("/atualizar", exchange -> {
                     </head>
                     <body>
                 """);
-
 
                 if (rows > 0) {
 
@@ -569,13 +567,11 @@ server.createContext("/atualizar", exchange -> {
                     """);
                 }
 
-
                 html.append("""
 
                     </body>
                     </html>
                 """);
-
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -586,13 +582,11 @@ server.createContext("/atualizar", exchange -> {
                         <meta charset="UTF-8">
                     </head>
                     <body>
-
                     <h2>!!! Erro ao apagar cliente!</h2>
                     <a href='/clientes'>Voltar</a>
                     </body>
                     </html>
                 """);
-
             }
 
             exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
