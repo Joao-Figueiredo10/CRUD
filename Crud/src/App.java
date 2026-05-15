@@ -1388,12 +1388,12 @@ public class App {
                 ResultSet rs = ps.executeQuery();
 
                 if (!rs.next()) {
-                    throw new Exception("Produto não encontrado");
+                    throw new Exception("Equipa não encontrado");
                 }
 
-                String refproduto = rs.getString("refproduto");
-                String produto = rs.getString("produto");
-                double preco = rs.getDouble("preco");
+                String nome = rs.getString("nome");
+                String numjogadores = rs.getString("numjogadores");
+                double anofundacao = rs.getDouble("anofundacao");
 
 
                 html.append("""
@@ -1408,16 +1408,16 @@ public class App {
                     </head>
                     <body>
 
-                    <h2>Editar Produto</h2>
-                    <a href='/produtos'>« Voltar</a><br><br>
-                    <form method='POST' action='/atualizar-produto'>
+                    <h2>Editar Equipa</h2>
+                    <a href='/equipas'>« Voltar</a><br><br>
+                    <form method='POST' action='/atualizarequipa'>
                 """);
 
 
                 html.append("<input type='hidden' name='id' value='").append(id).append("'>");
-                html.append("Referência:<input name='refproduto' value='").append(refproduto).append("' required>");
-                html.append("Produto:<input name='produto' value='").append(produto).append("' required>");
-                html.append("Preço:<input name='preco' value='").append(preco).append("' required>");
+                html.append("Referência:<input name='nome' value='").append(nome).append("' required>");
+                html.append("Produto:<input name='numjogadores' value='").append(numjogadores).append("' required>");
+                html.append("Preço:<input name='anofundacao' value='").append(anofundacao).append("' required>");
 
                 html.append("""
                     <button type='submit'>Atualizar</button>
